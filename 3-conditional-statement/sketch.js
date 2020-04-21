@@ -6,7 +6,7 @@ let me;
 
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(1000, 1000);
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -59,22 +59,10 @@ class Avatar {
 	}
 
 	moveMe(){
-    if (keyIsDown(RIGHT_ARROW)) { //if you hold the up arrow, move up by speed
+    if (keyIsPressed(SPACE_BAR)) { //if keyIsClicked, start game
        this.x += 10;
     }
-
-    if (keyIsDown(LEFT_ARROW)) { // if you hold the down arrow, move down by speed
-        this.x -= 10;
-    }
-
-    if (keyIsDown(UP_ARROW)) { // if you hold the down arrow, move down by speed
-        this.y -= 10;
-    }
-
-    if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
-        this.y += 10;
-    }
-	}
+}
 
   die(){
 
