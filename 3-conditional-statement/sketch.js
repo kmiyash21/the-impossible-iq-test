@@ -43,28 +43,14 @@ class Avatar {
         this.speed = speed;
 	}
 
-	drawMe(){  // draw the running person
-        fill("yellow")
-        stroke("red")
-        strokeWeight(4)
-        triangle(this.x,this.y+30,this.x-40,this.y+50,this.x+40,this.y+50)
-    		stroke("green");
-        strokeWeight(3);
-    		fill("blue");
-		    ellipse(this.x,this.y,50,90);
-        fill("red")
-        ellipse(this.x,this.y+20,20,20)
-        ellipse(this.x,this.y-10,20,20)
-
 	}
 
 	moveMe(){
-    if (keyIsPressed(SPACE_BAR)) { //if keyIsClicked, start game
-       this.x += 10;
+    if (keyIsPressed == 32) { //if keyIsClicked, start game
+
     }
 }
 
-  die(){
 
   }
 
@@ -80,29 +66,5 @@ class Ball {
     this.y = y;
     this.speed = speed;
 	}
-
-	// draw a ball on the screen at x,y
-	drawBall(){
-    	stroke(0);
-      strokeWeight(1);
-    	fill(0,255,124);
-		  ellipse(this.x,this.y,40,40);
-      fill(random(255),random(255),random(255))
-      ellipse(this.x+10,this.y+10,8,8)
-      ellipse(this.x-10,this.y+10,8,8)
-	}
-
-	//update the location of the ball, so it moves across the screen
-	moveBall(){
-		this.x = this.x;
-		this.y = this.y- this.speed;
-	}
-
-	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
-  	bounceBall(){
-    		if (this.x >= me.x-25 && this.x <= me.x+25 && this.y > me.y-80 && this.y < me.y+30){
-      			this.speed = -this.speed;
-    		}
-  	}
 
 }
