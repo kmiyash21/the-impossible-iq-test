@@ -5,11 +5,11 @@ function setup() {
 }
 
 function draw() {
-  background("red");
-  rect(200,200,400,400);
-  text("Click Your Mouse to Start the Game",200,200);
-  text("The Impossible IQ Game by Annie Hockin and Kyler Miyashita",100,700)
-}
+  background("blue");
+  textSize(40);
+  text("Click Your Mouse on the Circle to Start the Game",60,200);
+  textSize(30);
+  text("The Impossible IQ Game by Annie Hockin and Kyler Miyashita",100,650)
 
 
   if (mode == 0) {
@@ -21,9 +21,11 @@ function draw() {
   }
 
 }
-
 //Useful to have multiple elements on one screen
 function screen1() {
+  fill("yellow");
+  strokeWeight(3)
+  stroke("green");
   ellipse(width / 2, height / 2, 300, 300);
 }
 
