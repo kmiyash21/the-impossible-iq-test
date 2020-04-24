@@ -1,70 +1,58 @@
-//create an empty array called balls
-let balls = [];
-
-//create a variable to hold your avatar
-let me;
-
+var mode = 0
 
 function setup() {
-  createCanvas(1000, 1000);
-
-  //make one avatar called me
-  me = new Avatar(width/2, 300, 3);
-
+  createCanvas(1000, 800);
 }
 
-function draw(){
-	background(0);
-
-  me.drawMe();
-  me.moveMe();
-
-  if (frameCount % 25 == 0) {
-      let  b = new Ball(random(0,width),0, -3);
-      balls.push(b);
-      console.log(balls); //print the balls array to the console
-    }
-
-//	draw all the balls in that array
-	for (let i = 0; i < balls.length; i++) {
-	 	      balls[i].drawBall();
-       	  balls[i].moveBall();
-        	balls[i].bounceBall();
-	  }
-
-}
-
-//avatar class
-class Avatar {
-
-	constructor(x,y, speed){ //every avatar needs an x value, a y value, and a speed
-		    this.x = x;
-    		this.y = y;
-        this.speed = speed;
-	}
-
-	}
-
-	moveMe(){
-    if (keyIsPressed == 32) { //if keyIsClicked, start game
-
-    }
+function draw() {
+  background("red");
+  rect(200,200,400,400);
+  text("Click Your Mouse to Start the Game",500,200);
+  text("The Impossible IQ Game by Annie Hockin and Kyler Miyashita",500,400)
 }
 
 
+  if (mode == 0) {
+    screen1();
+  } else if (mode == 1) {
+    screen2();
+  } else if (mode == 2) {
+    screen3();
   }
 
 }
 
-
-//ball class from which to create new balls with similar properties.
-class Ball {
-
-	//every ball needs an x value, a y value, and a speed
-	constructor(x,y, speed){
-		this.x = x;
-    this.y = y;
-    this.speed = speed;
-	}
-
+//Useful to have multiple elements on one screen
+function screen1() {
+  ellipse(width / 2, height / 2, 300, 300);
 }
+
+function screen2() {
+  rect(50, 50, 300, 300);
+}
+
+function screen3() {
+  line(0, 0, width, height);
+  line(0, width, width, 0);
+}
+
+
+//Method 1: More flexible, any order
+function mousePressed() {
+  if (mode == 0) {
+    mode = 1;
+  } else if (mode == 1) {
+    mode = 2;
+  } else if (mode == 2) {
+    mode = 0;
+  }
+}
+
+//Method 2: Can only go in order
+// function mousePressed(){
+//   mode=mode+1;
+//   if (mode==3) {
+//     mode=0;
+//   }
+//   print(mode);
+// }
