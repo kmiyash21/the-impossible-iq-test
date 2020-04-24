@@ -7,8 +7,8 @@ function setup() {
 function draw() {
   background("red");
   rect(200,200,400,400);
-  text("Click Your Mouse to Start the Game",500,200);
-  text("The Impossible IQ Game by Annie Hockin and Kyler Miyashita",500,400)
+  text("Click Your Mouse to Start the Game",200,200);
+  text("The Impossible IQ Game by Annie Hockin and Kyler Miyashita",100,700)
 }
 
 
