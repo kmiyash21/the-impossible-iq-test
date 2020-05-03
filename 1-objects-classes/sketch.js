@@ -64,9 +64,9 @@ function screen3() {
 
 //Method 1: More flexible, any order
 function mousePressed() {
-  if (mode == 0) {
+  if (mode == 0){
     mode = 1;
-  } else if (mode == 1) {
+  } else if (mode == 1 && 305<mouseX && mouseX<325 && 210<mouseY && mouseY<230) {
     mode = 2;
   } else if (mode == 2) {
     mode = 0;
