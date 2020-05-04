@@ -1,74 +1,69 @@
-var mode = 0
+
+//create an empty array called balls
+
+let balls = [];
 
 function setup() {
-  createCanvas(1000, 800);
-}
-
-function draw() {
-  if (mode == 0) {
-    screen1();
-  } else if (mode == 1) {
-    screen2();
-  } else if (mode == 2) {
-    screen3();
-  }
-
-}
-//Useful to have multiple elements on one screen
-function screen1() {
-  background("red");
-    textSize(40);
-    text("Click Your Mouse on the Circle to Start the Game",60,200);
-    textSize(30);
-    text("The Impossible IQ Game by Annie Hockin and Kyler Miyashita",100,650)
-  fill("yellow");
-  strokeWeight(3)
-  stroke("green");
-  ellipse(width / 2, height / 2, 300, 300);
-}
-
-function screen2() {
-  background("blue");
-  noStroke();
-  textSize(80);
-  fill("black");
-  text("45",450, 630);
-  text("30",250, 630);
-  text("60",650, 630);
-  textSize(50);
-  fill("black");
-  text("Click on the right answer.",230,500)
-  fill("yellow")
-  triangle(300,200,300,400,700,400);
-  rect(300,379,20,20);
-  fill("black")
-  fill("blue")
-  strokeWeight(5);
-  stroke("black")
-  ellipse(560,580,20,20)
-  ellipse(360,580,20,20)
-  ellipse(760,580,20,20)
-  noStroke();
-  fill("black")
-  textSize(40);
-  text("Find X",450,150)
-  textSize(20)
-  text("x",310,230)
-  text("y",640,390)
-}
-
-function screen3() {
+  createCanvas(1200, 800);
 
 }
 
+function draw(){
+	background(0,155,255);
+  fill("green")
+  rect(0,700,1200,100)
 
-//Method 1: More flexible, any order
-function mousePressed() {
-  if (mode == 0){
-    mode = 1;
-  } else if (mode == 1 && 305<mouseX && mouseX<325 && 210<mouseY && mouseY<230) {
-    mode = 2;
-  } else if (mode == 2) {
-    mode = 0;
-  }
+//	draw all the balls in that array
+	for (let i = 0; i < balls.length; i++) {
+	    balls[i].drawBall();
+      balls[i].moveBall();
+	  }
+}
+
+function keyPressed(){ //every time you push a key, make a new ball from the ball class and add it to the balls array
+  let  b = new Ball(100, 100, 5, 2);
+  balls.push(b);
+  console.log(balls);
+}
+
+//ball class from which to create new balls with similar properties.
+class Ball {
+
+	constructor(x,y, speed,speed2){ //every ball needs an x value and a y value
+		    this.x = random(1200);
+    		this.y = random(700);
+        this.speed = speed;
+        this.speed2 = speed2;
+	}
+
+	drawBall(){  // draw a ball on the screen at x,y
+    		stroke(0);
+    		fill("red");
+		    ellipse(this.x,this.y,30,30);
+        fill("white")
+        ellipse(this.x+6,this.y-5,7,7);
+        ellipse(this.x-6,this.y-5,7,7);
+        fill("yellow");
+        ellipse(this.x, this.y+5,10,7);
+        fill("black");
+        rect(this.x-15, this.y-20,30,10);
+        rect(this.x-7, this.y-30,14,10);
+
+	}
+	moveBall(){ //update the location of the ball, so it moves across the screen
+		this.x = this.x+this.speed;
+		this.y = this.y+this.speed2;
+    if (this.x >= 1200){
+      this.speed= -this.speed;
+    }
+    if (this.y >= 700){
+      this.speed2= -this.speed2;
+    }
+    if (this.x <= 0){
+      this.speed= -this.speed;
+    }
+    if (this.y <= 0){
+      this.speed2= -this.speed2;
+    }
+	}
 }
