@@ -23,7 +23,7 @@ function draw(){
   line(140,175,140,165);
   line(130,165,150,165);
   textSize(30);
-  text("fix the bicyle with the wrench!",60,40,400,40);
+  text("Fix the bicylce with the wrench!",60,40,500,40);
   line(280,250,280,200)
   line(290,250,290,200)
   line(280,250,290,250)
