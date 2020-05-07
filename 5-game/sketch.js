@@ -1,4 +1,4 @@
-var mode = 0
+let mode = 0
 
 function setup() {
   createCanvas(1000, 800);
@@ -11,7 +11,13 @@ function draw() {
     screen2();
   } else if (mode == 2) {
     screen3();
-  }
+  } else if (mode == 3) {
+    screen4();
+  } else if (mode == 4) {
+    screen5();
+  } else if (mode == 5) {
+    screen6();
+  }
 
 }
 //Useful to have multiple elements on one screen
@@ -87,12 +93,34 @@ strokeWeight(6);
   line(664.5,379,669,379)
   line(700,379,704,379)
 }
+
+function screen4(){
+  background("pink")
+  textSize(30);
+  fill("purple");
+  text("When you overtake the runner in 2nd place, what place are you now in?",20,50,980,50);
+  fill("yellow")
+  noStroke();
+rect(230,200,100,100);
+rect(430,200,100,100);
+rect(630,200,100,100);
+textSize(30);
+fill("black")
+text("1st",260,260);
+text("3rd",460,260);
+textSize(23);
+text("Can't say",636,255);
+noFill();
+}
+
 function mousePressed() {
   if (mode == 0){
     mode = 1;
   } else if (mode == 1 && 305<mouseX && mouseX<325 && 210<mouseY && mouseY<230) {
     mode = 2;
   } else if (mode == 2 && 350<mouseX && mouseX<470 && 165<mouseY && mouseY<205) {
-    mode = 0;
-  }
+    mode = 3;
+  }  else if (mode == 3 && 459<mouseX && mouseX<517 && 40<mouseY && mouseY<90){
+    mode = 0
+}
 }
